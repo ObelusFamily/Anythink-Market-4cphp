@@ -64,6 +64,24 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find_by!(slug: params[:slug])
+
+    render json: {
+          title: @item.title,
+          slug: @item.slug,
+          description: @item.description,
+          image: (@item.image == "" ? nil : @item.image) || '/placeholder.png',
+          tagList: @item.tags.map(&:name),
+          createdAt: @item.created_at,
+          updatedAt: @item.updated_at,
+          seller: {
+            username: @item.user.username,
+            bio: @item.user.bio,
+            image: @item.user.image || 'https://static.productionready.io/images/smiley-cyrus.jpg',
+            following: signed_in? ? current_user.following?(@item.user) : false,
+          },
+          favorited: signed_in? ? current_user.favorited?(@item) : false,
+          favorites_count: @item.favorites_count || 0
+        }
   end
 
   def update
