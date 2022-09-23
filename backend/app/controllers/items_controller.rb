@@ -66,6 +66,7 @@ class ItemsController < ApplicationController
     @item = Item.find_by!(slug: params[:slug])
 
     render json: {
+      item: {
           title: @item.title,
           slug: @item.slug,
           description: @item.description,
@@ -82,6 +83,7 @@ class ItemsController < ApplicationController
           favorited: signed_in? ? current_user.favorited?(@item) : false,
           favorites_count: @item.favorites_count || 0
         }
+      }
   end
 
   def update
