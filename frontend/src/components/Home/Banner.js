@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../imgs/logo.png";
 import agent from "../../agent";
 
 const Banner = (props) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleBar = (ev) => {
+    setIsActive((current) => !current);
+  };
+
   const changeTitle = (ev) => {
     ev.preventDefault();
     const title = ev.target.value.length > 2 ? ev.target.value : "";
@@ -19,12 +25,15 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">A place to get</span>
+          <span id="get-part" onClick={toggleBar}>
+            A place to get
+          </span>
           <div
+            id="search-bar"
             style={{
               position: "relative",
               width: "40%",
-              display: "inline-block",
+              display: isActive ? "inline-block" : "none",
               marginLeft: "1em",
               marginRight: "1em",
             }}
@@ -33,6 +42,7 @@ const Banner = (props) => {
               id="search-box"
               className="form-control form-control-lg"
               type="text"
+              style={{ display: isActive ? "inline-block" : "none" }}
               placeholder="What is it that you truly desire?"
               onChange={changeTitle}
             />
