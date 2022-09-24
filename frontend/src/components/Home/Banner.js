@@ -42,7 +42,7 @@ const Banner = (props) => {
               id="search-box"
               className="form-control form-control-lg"
               type="text"
-              style={{display: isActive ? "inline-block" : "none",}}
+              style={{ display: isActive ? "inline-block" : "none" }}
               placeholder="What is it that you truly desire?"
               onChange={changeTitle}
             />
