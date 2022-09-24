@@ -25,8 +25,8 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">
-            A place to <span onClick={toggleBar}>get</span>
+          <span id="get-part" onClick={toggleBar}>
+            A place to get
           </span>
           <div
             id="search-bar"
