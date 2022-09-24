@@ -20,15 +20,33 @@ const Banner = (props) => {
         <img src={logo} alt="banner" />
         <div>
           <span id="get-part">A place to get</span>
-          <div style={{position: "relative", width:"40%", display: "inline-block", marginLeft: "1em", marginRight: "1em" }}>
+          <div
+            style={{
+              position: "relative",
+              width: "40%",
+              display: "inline-block",
+              marginLeft: "1em",
+              marginRight: "1em",
+            }}
+          >
             <input
+              id="search-box"
               className="form-control form-control-lg"
               type="text"
               placeholder="What is it that you truly desire?"
-              
               onChange={changeTitle}
             />
-            <i class="ion-search" style={{position: "absolute", right: 0, top: 0, color: "lightgray", transform: "translate(-65%, 25%)", scale: "2"}} /> 
+            <i
+              class="ion-search"
+              style={{
+                position: "absolute",
+                right: 0,
+                top: 0,
+                color: "lightgray",
+                transform: "translate(-65%, 25%)",
+                scale: "2",
+              }}
+            />
           </div>
           <span> the cool stuff.</span>
         </div>
