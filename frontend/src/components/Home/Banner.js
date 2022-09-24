@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import logo from "../../imgs/logo.png";
 import agent from "../../agent";
 
@@ -6,8 +6,8 @@ const Banner = (props) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleBar = (ev) => {
-    setIsActive(current => !current);
-  }
+    setIsActive((current) => !current);
+  };
 
   const changeTitle = (ev) => {
     ev.preventDefault();
@@ -25,8 +25,11 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">A place to <span onClick={toggleBar}>get</span></span>
-          <div id="search-bar"
+          <span id="get-part">
+            A place to <span onClick={toggleBar}>get</span>
+          </span>
+          <div
+            id="search-bar"
             style={{
               position: "relative",
               width: "40%",
